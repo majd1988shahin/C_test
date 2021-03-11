@@ -1,15 +1,10 @@
-sudo: required
-
-services:
-  - docker
-
 language: c
 
 compiler:
 - gcc
 
 before_script:
-  - docker build -t my-gcc-app .
+  - gcc -o main.out main.c
 
 script:
-  - docker run -it --rm --name my-running-app my-gcc-app
+  - ./main.out
