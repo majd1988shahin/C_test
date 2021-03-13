@@ -1,10 +1,18 @@
 #language: c
-
-compiler:
-- gcc
-
-before_script:
-  - gcc -o main.out main.c
-
-script:
-  - ./main.out
+stages:
+  - C
+  - CPP
+jops:
+  inculde:
+    - stage: C
+    name: "C_compiler"
+    install: skip
+    script:
+      - gcc -o main.out main.c
+      - ./main.out
+    - stage: CPP
+    name: "g++_compiler"
+    install: skip
+    script:
+      - g++ -o main.out main.c
+      - ./main.out
