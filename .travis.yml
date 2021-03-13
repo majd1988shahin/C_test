@@ -1,4 +1,9 @@
 #language: c
+install: make get-deps
+compiler:
+  - gcc
+  - g++
+  
 stages:
   - C
   - CPP
